@@ -4,11 +4,16 @@ import java.io.InputStreamReader;
 import java.util.Objects;
 
 public class Student {
-    Account account;
+    private Account account;
 
     Student() {
         account = new Account();
     }
+
+    Account getAccount() {
+        return this.account;
+    }
+
     Student (String username, String password) {
         account = new Account(username, password);
     }

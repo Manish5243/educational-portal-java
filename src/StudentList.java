@@ -17,9 +17,21 @@ public class StudentList {
     }
 
     Student login(String username, String password) {
-        Student s = new Student("suige", "suige");
-        if (Objects.equals(username, "suige")) {
-            return s;
+        Student s = this.searchStudent(username);
+
+        if (s != null) {
+            if (Objects.equals(s.getAccount().getPassword(), password)) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    Student searchStudent(String username) {
+        for (Student s : this.students) {
+            if (Objects.equals(s.getAccount().getUsername(), username)) {
+                return s;
+            }
         }
         return null;
     }
