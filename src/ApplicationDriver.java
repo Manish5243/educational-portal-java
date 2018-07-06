@@ -40,6 +40,8 @@ public class ApplicationDriver {
             if (Objects.equals(username, Constant.REGISTER)) {
                 Screen.displayRegister();
                 if ((s = students.register()) != null) {
+                    Screen.displaySuccessRegister(s);
+                    TimeUnit.SECONDS.sleep(1);
                     break;
                 }
             } else {

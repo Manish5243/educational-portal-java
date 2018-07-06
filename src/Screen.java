@@ -46,4 +46,10 @@ public class Screen {
         System.out.println(bar);
         System.out.println("Enter the number corresponding to each item to proceed:");
     }
+    public static void displaySuccessRegister(Student s) {
+        System.out.println("Thanks, your account and profile has been created successfully.");
+        System.out.print("Welcome Aboard ");
+        System.out.print(s.getAccount().getUsername());
+        System.out.println(" !");
+    }
 }
