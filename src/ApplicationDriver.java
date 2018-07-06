@@ -23,7 +23,7 @@ public class ApplicationDriver {
         run();
     }
 
-    private static Student login(StudentList students) {
+    private static Student login(StudentList students) throws InterruptedException{
         InputStreamReader is = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(is);
         String username="", password="";
@@ -50,6 +50,7 @@ public class ApplicationDriver {
             s = students.login(username, password);
             if (s == null) {
                 Screen.displayLoginWrong();
+                TimeUnit.SECONDS.sleep(1);
             }
         } while (s == null);
 
