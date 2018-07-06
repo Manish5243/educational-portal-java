@@ -39,6 +39,9 @@ public class ApplicationDriver {
             }
             if (Objects.equals(username, Constant.REGISTER)) {
                 Screen.displayRegister();
+                if ((s = students.register()) != null) {
+                    break;
+                }
             } else {
                 try {
                     password = br.readLine();

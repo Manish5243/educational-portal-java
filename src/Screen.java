@@ -28,10 +28,6 @@ public class Screen {
         System.out.println(bar);
         System.out.println("Welcome to Cornerstone International College of Canada.");
         System.out.println(bar);
-        System.out.println("Please enter your first name:");
-        Student s = new Student();
-        s.register();
-
     }
     public static void displayMainMenu() {
         System.out.println(bar);

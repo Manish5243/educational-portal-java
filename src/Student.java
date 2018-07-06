@@ -5,13 +5,22 @@ import java.util.Objects;
 
 public class Student {
     private Account account;
+    private StudentProfile studentProfile;
 
     Student() {
         account = new Account();
     }
 
-    Account getAccount() {
+    public Account getAccount() {
         return this.account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public void setStudentProfile(StudentProfile sp) {
+        this.studentProfile = sp;
     }
 
     Student (String username, String password) {
