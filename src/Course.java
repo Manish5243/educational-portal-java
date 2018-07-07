@@ -35,6 +35,10 @@ public class Course {
         return semester;
     }
 
+    public int getGrade() {
+        return grade;
+    }
+
     public boolean isSemester() {
         if (this.semester == ApplicationDriver.semester) {
             return true;

@@ -68,7 +68,7 @@ public class Student {
         return true;
     }
 
-    public void displayEnrolmentCertificate(int semester) {
+    public void displayEnrolmentCertificate() {
         String subject = "";
         StudentProfile sp = this.getStudentProfile();
         if (Objects.equals(sp.getGender(), Constant.MALE)) {
@@ -90,7 +90,7 @@ public class Student {
         System.out.print(" with student id ");
         System.out.print(sp.getStudentID());
         System.out.print(" is a student at semester ");
-        System.out.print(semester);
+        System.out.print(ApplicationDriver.semester);
         System.out.println(" at CICCC.");
 
         System.out.print(uppeCaseFirst(subject));
@@ -110,7 +110,7 @@ public class Student {
         System.out.println();
     }
 
-    public void displayCourses(int semester) {
+    public void displayCourses() {
         StudentProfile sp = this.getStudentProfile();
         System.out.println();
         System.out.print("Hi ");
@@ -118,6 +118,24 @@ public class Student {
         System.out.println(",");
         System.out.println("You have taken the following courses so far:");
         this.gt.displayAll();
+        System.out.println();
+    }
+
+    public void displayTranscript() {
+        StudentProfile sp = this.getStudentProfile();
+        System.out.println();
+        System.out.print("Hi ");
+        System.out.print(sp.getName());
+        System.out.println(",");
+        System.out.println("Here is your general transcript:");
+        this.gt.displayAllGrade();
+        System.out.print("YOUR GPA IS: ");
+        System.out.println(String.format("%1$.2f", this.gt.getTotalGPA()));
+        System.out.println();
+        System.out.println("Here is your current semester transcript:");
+        this.gt.displayCurrentGrade();
+        System.out.print("YOUR Current Semester GPA IS: ");
+        System.out.println(String.format("%1$.2f", this.gt.getCurrentGPA()));
         System.out.println();
     }
 

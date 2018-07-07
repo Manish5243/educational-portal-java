@@ -87,10 +87,13 @@ public class ApplicationDriver {
     private static void doMenu(int command) {
         switch (command) {
             case 1 :
-                currentStudent.displayEnrolmentCertificate(semester);
+                currentStudent.displayEnrolmentCertificate();
                 break;
             case 2 :
-                currentStudent.displayCourses(semester);
+                currentStudent.displayCourses();
+                break;
+            case 3 :
+                currentStudent.displayTranscript();
                 break;
         }
 
@@ -120,10 +123,10 @@ public class ApplicationDriver {
         Student s2 = new Student("linlin", "123123", sp2, 1);
         Student s3 = new Student("will", "123123", sp3, 1);
 
-        s1.getGt().add(courses.get(4), 1);
-        s1.getGt().add(courses.get(5), 2);
-        s1.getGt().add(courses.get(6), 4);
-        s1.getGt().add(courses.get(7), 3);
+        s1.getGt().add(courses.get(4), 1, 80);
+        s1.getGt().add(courses.get(5), 2, 45);
+        s1.getGt().add(courses.get(6), 4, 64);
+        s1.getGt().add(courses.get(7), 3, 70);
 
         s2.getGt().add(courses.get(1));
 
