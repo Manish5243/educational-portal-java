@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationDriver {
 
     static Student currentStudent;
-    static int semester = 1;
+    static int semester = 4;
     static ArrayList<Course> courses;
     static StudentList students;
 
@@ -88,6 +88,10 @@ public class ApplicationDriver {
         switch (command) {
             case 1 :
                 currentStudent.displayEnrolmentCertificate(semester);
+                break;
+            case 2 :
+                currentStudent.displayCourses(semester);
+                break;
         }
 
     }
@@ -116,8 +120,10 @@ public class ApplicationDriver {
         Student s2 = new Student("linlin", "123123", sp2, 1);
         Student s3 = new Student("will", "123123", sp3, 1);
 
-        s1.getGt().add(courses.get(0));
-        s1.getGt().add(courses.get(1));
+        s1.getGt().add(courses.get(4), 1);
+        s1.getGt().add(courses.get(5), 2);
+        s1.getGt().add(courses.get(6), 4);
+        s1.getGt().add(courses.get(7), 3);
 
         s2.getGt().add(courses.get(1));
 

@@ -110,6 +110,17 @@ public class Student {
         System.out.println();
     }
 
+    public void displayCourses(int semester) {
+        StudentProfile sp = this.getStudentProfile();
+        System.out.println();
+        System.out.print("Hi ");
+        System.out.print(sp.getName());
+        System.out.println(",");
+        System.out.println("You have taken the following courses so far:");
+        this.gt.displayAll();
+        System.out.println();
+    }
+
     private static String uppeCaseFirst(String str) {
         String ret = str.toUpperCase().substring(0, 1) + str.toLowerCase().substring(1);
         return ret;

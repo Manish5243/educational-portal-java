@@ -23,4 +23,22 @@ public class Course {
         this.semester = semester;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public int getSemester() {
+        return semester;
+    }
+
+    public boolean isSemester() {
+        if (this.semester == ApplicationDriver.semester) {
+            return true;
+        }
+        return false;
+    }
 }
