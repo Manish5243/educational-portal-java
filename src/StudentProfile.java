@@ -12,7 +12,7 @@ public class StudentProfile {
     private int yearoOfAdmission;
 
     StudentProfile () {
-
+        this.studentID = createStudentID();
     }
 
     StudentProfile(String firstname, String lastname, String gender, String address, String countryOfOrigin, int age, int yearoOfAdmission) {
@@ -23,6 +23,13 @@ public class StudentProfile {
         this.countryOfOrigin = countryOfOrigin;
         this.age = age;
         this.yearoOfAdmission = yearoOfAdmission;
+        this.studentID = createStudentID();
+    }
+
+    private int createStudentID() {
+        // Don't care about duplicate now
+        int i = (int)(Math.random()*100000000);
+        return i;
     }
 
     public String getName() {
