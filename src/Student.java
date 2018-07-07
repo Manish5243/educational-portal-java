@@ -139,6 +139,20 @@ public class Student {
         System.out.println();
     }
 
+    public void displayGPA() {
+        StudentProfile sp = this.getStudentProfile();
+        System.out.println();
+        System.out.print("Hi ");
+        System.out.print(sp.getName());
+        System.out.println(",");
+        System.out.print("Your overall GPA is ");
+        System.out.println(String.format("%1$.2f", this.gt.getTotalGPA()));
+        System.out.print("Your current semester’s GPA is ");
+        System.out.println(String.format("%1$.2f", this.gt.getCurrentGPA()));
+        System.out.println();
+    }
+
+
     private static String uppeCaseFirst(String str) {
         String ret = str.toUpperCase().substring(0, 1) + str.toLowerCase().substring(1);
         return ret;

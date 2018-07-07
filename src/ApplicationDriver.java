@@ -95,6 +95,9 @@ public class ApplicationDriver {
             case 3 :
                 currentStudent.displayTranscript();
                 break;
+            case 4 :
+                currentStudent.displayGPA();
+                break;
         }
 
     }
