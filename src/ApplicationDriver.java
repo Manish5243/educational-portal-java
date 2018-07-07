@@ -95,9 +95,14 @@ public class ApplicationDriver {
     private  static ArrayList<Course> registerCourses() {
         ArrayList<Course> courses = new ArrayList<>();
 
-        courses.add(new Course("html", 2));
-        courses.add(new Course("css", 3));
-        courses.add(new Course("javascript", 5));
+        courses.add(new Course("Objective-C", "MADP101", 3));
+        courses.add(new Course("Object-Oriented Programming", "MADP102", 2));
+        courses.add(new Course("Problem Solving", "MADP201", 1));
+        courses.add(new Course("Project Management", "MADP202",3));
+        courses.add(new Course("Java Programming", "MADP301", 3));
+        courses.add(new Course("Web Development", "MADP302", 2));
+        courses.add(new Course("Android Programming", "MADP401", 2));
+        courses.add(new Course("iOS Applications", "MADP402", 3));
 
         return  courses;
     }
