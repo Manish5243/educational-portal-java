@@ -6,13 +6,34 @@ import java.util.Objects;
 public class Student {
     private Account account;
     private StudentProfile studentProfile;
+    private int numberOfYear;
+    private GeneralTranscript gt;
 
     Student() {
-        account = new Account();
+        this.gt = new GeneralTranscript();
+    }
+
+    Student (String username, String password, StudentProfile sp, int numberOfYear) {
+        this.account = new Account(username, password);
+        this.studentProfile = sp;
+        this.numberOfYear = numberOfYear;
+        this.gt = new GeneralTranscript();
     }
 
     public Account getAccount() {
         return this.account;
+    }
+
+    public StudentProfile getStudentProfile() {
+        return studentProfile;
+    }
+
+    public int getNumberOfYear() {
+        return numberOfYear;
+    }
+
+    public GeneralTranscript getGt() {
+        return gt;
     }
 
     public void setAccount(Account account) {
@@ -23,9 +44,6 @@ public class Student {
         this.studentProfile = sp;
     }
 
-    Student (String username, String password) {
-        account = new Account(username, password);
-    }
 
     boolean register() {
         String username="", password="";
@@ -48,5 +66,52 @@ public class Student {
         }
 
         return true;
+    }
+
+    public void displayEnrolmentCertificate(int semester) {
+        String subject = "";
+        StudentProfile sp = this.getStudentProfile();
+        if (Objects.equals(sp.getGender(), Constant.MALE)) {
+            subject = "he";
+        } else {
+            subject = "she";
+        }
+
+        System.out.println();
+        if (Objects.equals(sp.getGender(), Constant.MALE)) {
+            System.out.println("Dear Sir,");
+        } else {
+            System.out.println("Dear Madam,");
+        }
+        System.out.println();
+
+        System.out.print("This is to certify that ");
+        System.out.print(sp.getName());
+        System.out.print(" with student id ");
+        System.out.print(sp.getStudentID());
+        System.out.print(" is a student at semester ");
+        System.out.print(semester);
+        System.out.println(" at CICCC.");
+
+        System.out.print(uppeCaseFirst(subject));
+        System.out.print(" was admitted to our college in ");
+        System.out.print(sp.getYearoOfAdmission());
+        System.out.print(" and has taken ");
+        System.out.print(this.gt.getTakenCourses());
+        System.out.print(" course(s) so far. Currently ");
+        System.out.print(subject);
+        System.out.print(" resides at ");
+        System.out.print(sp.getAddress());
+        System.out.println(".");
+        System.out.println();
+        System.out.println("If you have any question, please don’t hesitate to contact us.");
+        System.out.println("Thanks,");
+        System.out.println("William,");
+        System.out.println();
+    }
+
+    private static String uppeCaseFirst(String str) {
+        String ret = str.toUpperCase().substring(0, 1) + str.toLowerCase().substring(1);
+        return ret;
     }
 }

@@ -8,12 +8,15 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationDriver {
 
-    public static void main(String[] args) throws InterruptedException {
-        StudentList students = new StudentList();
-        Student s1 = new Student("suige", "123123");
-        students.add(s1);
+    static Student currentStudent;
+    static int semester = 1;
+    static ArrayList<Course> courses;
+    static StudentList students;
 
-        Student currentStudent;
+    public static void main(String[] args) throws InterruptedException {
+        // register test data
+        courses = registerCourses();
+        students = registerStudents();
 
         // Login
         currentStudent = login(students);
@@ -64,18 +67,64 @@ public class ApplicationDriver {
         return s;
     }
 
-    private static void run() {
+    private static void run() throws InterruptedException {
         InputStreamReader is = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(is);
         String command = "";
 
         while (!Objects.equals(command, "10")) {
+            TimeUnit.SECONDS.sleep(1);
             Screen.displayMainMenu();
             try {
                 command = br.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            doMenu(Integer.parseInt(command));
         }
+    }
+
+    private static void doMenu(int command) {
+        switch (command) {
+            case 1 :
+                currentStudent.displayEnrolmentCertificate(semester);
+        }
+
+    }
+
+    private  static ArrayList<Course> registerCourses() {
+        ArrayList<Course> courses = new ArrayList<>();
+
+        courses.add(new Course("html", 2));
+        courses.add(new Course("css", 3));
+        courses.add(new Course("javascript", 5));
+
+        return  courses;
+    }
+
+    private  static StudentList registerStudents() {
+        StudentList students = new StudentList();
+        StudentProfile sp1 = new StudentProfile("Takana", "Taro", "M", "1233 Burrard Street", "Japan", 20, 2018);
+        StudentProfile sp2 = new StudentProfile("Ma", "Lin", "F", "233 Knight Street", "China", 24, 2018);
+        StudentProfile sp3 = new StudentProfile("Williams", "John", "M", "#2904-2224 W.Hasting Street", "Canada", 29, 2017);
+        Student s1 = new Student("tanaka", "123123", sp1, 1);
+        Student s2 = new Student("linlin", "123123", sp2, 1);
+        Student s3 = new Student("will", "123123", sp3, 1);
+
+        s1.getGt().add(courses.get(0));
+        s1.getGt().add(courses.get(1));
+
+        s2.getGt().add(courses.get(1));
+
+        s3.getGt().add(courses.get(0));
+        s3.getGt().add(courses.get(1));
+        s3.getGt().add(courses.get(2));
+
+        students.add(s1);
+        students.add(s2);
+        students.add(s3);
+
+
+        return  students;
     }
 }
