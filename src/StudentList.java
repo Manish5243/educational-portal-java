@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -97,5 +98,17 @@ public class StudentList {
         s.setAccount(a);
 
         return s;
+    }
+
+    public int getRank(int id) {
+        StudentGpaComparator sgc = new StudentGpaComparator();
+        Collections.sort(this.students, sgc);
+
+        for(int i = 0; i < this.students.size(); i++){
+            if (this.students.get(i).getStudentProfile().getStudentID() == id) {
+                return i+1;
+            }
+        }
+        return 0;
     }
 }

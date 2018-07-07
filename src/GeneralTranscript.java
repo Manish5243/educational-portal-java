@@ -29,9 +29,10 @@ public class GeneralTranscript {
 
     // For test
     public void add(Course c, int semester, int grade) {
-        c.setSemester(semester);
-        c.setGrade(grade);
-        courses.add(c);
+        Course course = new Course(c.getName(), c.getCode(), c.getUnit());
+        course.setSemester(semester);
+        course.setGrade(grade);
+        courses.add(course);
     }
 
     public void displayAll() {

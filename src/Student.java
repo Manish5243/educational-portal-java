@@ -152,6 +152,18 @@ public class Student {
         System.out.println();
     }
 
+    public void displayRank(StudentList students) {
+        StudentProfile sp = this.getStudentProfile();
+        System.out.println();
+        System.out.print("Hi ");
+        System.out.print(sp.getName());
+        System.out.println(",");
+        System.out.print("Your overall GPA is ");
+        System.out.print(String.format("%1$.2f", this.gt.getTotalGPA()));
+        System.out.print(" and therefore your rank is ");
+        System.out.println(students.getRank(sp.getStudentID()));
+        System.out.println();
+    }
 
     private static String uppeCaseFirst(String str) {
         String ret = str.toUpperCase().substring(0, 1) + str.toLowerCase().substring(1);

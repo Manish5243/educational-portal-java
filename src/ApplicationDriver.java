@@ -98,6 +98,9 @@ public class ApplicationDriver {
             case 4 :
                 currentStudent.displayGPA();
                 break;
+            case 5 :
+                currentStudent.displayRank(students);
+                break;
         }
 
     }
@@ -126,16 +129,16 @@ public class ApplicationDriver {
         Student s2 = new Student("linlin", "123123", sp2, 1);
         Student s3 = new Student("will", "123123", sp3, 1);
 
-        s1.getGt().add(courses.get(4), 1, 80);
+        s1.getGt().add(courses.get(1), 1, 80);
         s1.getGt().add(courses.get(5), 2, 45);
         s1.getGt().add(courses.get(6), 4, 64);
         s1.getGt().add(courses.get(7), 3, 70);
 
-        s2.getGt().add(courses.get(1));
+        s2.getGt().add(courses.get(1), 4, 90);
 
-        s3.getGt().add(courses.get(0));
-        s3.getGt().add(courses.get(1));
-        s3.getGt().add(courses.get(2));
+        s3.getGt().add(courses.get(0), 2, 80);
+        s3.getGt().add(courses.get(1), 3, 65);
+        s3.getGt().add(courses.get(2), 4, 77);
 
         students.add(s1);
         students.add(s2);

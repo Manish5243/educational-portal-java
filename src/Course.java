@@ -31,6 +31,10 @@ public class Course {
         return code;
     }
 
+    public int getUnit() {
+        return unit;
+    }
+
     public int getSemester() {
         return semester;
     }
