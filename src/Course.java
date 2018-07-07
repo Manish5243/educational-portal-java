@@ -5,8 +5,6 @@ public class Course {
     private int grade;
     private int semester;
 
-    static int numberOfCourse = 0;
-
     Course (String name, String code, int unit) {
         this.name = name;
         this.code = code;

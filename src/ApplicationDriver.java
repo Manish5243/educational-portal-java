@@ -10,7 +10,7 @@ public class ApplicationDriver {
 
     static Student currentStudent;
     static int semester = 4;
-    static ArrayList<Course> courses;
+    static CourseList courses;
     static StudentList students;
 
     public static void main(String[] args) throws InterruptedException {
@@ -101,12 +101,15 @@ public class ApplicationDriver {
             case 5 :
                 currentStudent.displayRank(students);
                 break;
+            case 6 :
+                courses.displayAll(currentStudent);
+                break;
         }
 
     }
 
-    private  static ArrayList<Course> registerCourses() {
-        ArrayList<Course> courses = new ArrayList<>();
+    private  static CourseList registerCourses() {
+        CourseList courses = new CourseList();
 
         courses.add(new Course("Objective-C", "MADP101", 3));
         courses.add(new Course("Object-Oriented Programming", "MADP102", 2));

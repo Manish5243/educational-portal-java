@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class GeneralTranscript {
     private ArrayList<Course> courses;
@@ -92,5 +93,14 @@ public class GeneralTranscript {
         }
 
         return total/getCurrentTakenCourses();
+    }
+
+    public Course getTakenCourse(String code) {
+        for (Course c : this.courses) {
+            if (Objects.equals(c.getCode(), code)) {
+                return c;
+            }
+        }
+        return null;
     }
 }
