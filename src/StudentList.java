@@ -139,6 +139,8 @@ public class StudentList {
         s.setStudentProfile(sp);
         s.setAccount(a);
 
+        add(s);
+
         return s;
     }
 
