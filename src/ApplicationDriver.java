@@ -107,6 +107,9 @@ public class ApplicationDriver {
             case 7 :
                 students.displayAll();
                 break;
+            case 8 :
+                currentStudent.displayProfile();
+                break;
         }
 
     }
