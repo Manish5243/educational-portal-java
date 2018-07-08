@@ -62,6 +62,12 @@ public class StudentList {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Please enter your address:");
+        try {
+            sp.setAddress(br.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println("Please enter your country of origin:");
         try {
             sp.setCountryOfOrigin(br.readLine());
