@@ -18,11 +18,6 @@ public class ApplicationDriver {
         courses = registerCourses();
         students = registerStudents();
 
-        // Login
-        currentStudent = login(students);
-        TimeUnit.SECONDS.sleep(1);
-
-        // Main menu after login was correct
         run();
     }
 
@@ -73,14 +68,23 @@ public class ApplicationDriver {
         String command = "";
 
         while (!Objects.equals(command, "10")) {
+            // Login
+            currentStudent = login(students);
             TimeUnit.SECONDS.sleep(1);
-            Screen.displayMainMenu();
-            try {
-                command = br.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
+            command = "";
+
+            // Main menu after login was correct
+            while (!Objects.equals(command, "9") && !Objects.equals(command, "10")) {
+                TimeUnit.SECONDS.sleep(1);
+                Screen.displayMainMenu();
+                try {
+                    command = br.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                doMenu(Integer.parseInt(command));
             }
-            doMenu(Integer.parseInt(command));
+            currentStudent = null;
         }
     }
 
