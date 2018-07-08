@@ -105,4 +105,28 @@ public class StudentProfile {
     public int getYearoOfAdmission() {
         return yearoOfAdmission;
     }
+
+    public boolean checkGender(String gender) {
+        if (Objects.equals(gender, Constant.MALE) || Objects.equals(gender, Constant.FEMAIL)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkYear(String year) {
+        return isNum(year);
+    }
+
+    public boolean checkAge(String age) {
+        return isNum(age);
+    }
+
+    static boolean isNum(String number) {
+        try {
+            Integer.parseInt(number);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 }

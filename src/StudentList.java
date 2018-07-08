@@ -56,12 +56,20 @@ public class StudentList {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Please enter your gender [M/F]:");
-        try {
-            sp.setGender(br.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        boolean checkgender = false;
+        String gender = "";
+        while (!checkgender) {
+            System.out.println("Please enter your gender [M/F]:");
+            try {
+                gender = br.readLine();
+                checkgender = sp.checkGender(gender);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        sp.setGender(gender);
+
         System.out.println("Please enter your address:");
         try {
             sp.setAddress(br.readLine());
@@ -74,18 +82,33 @@ public class StudentList {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Please enter the year of admission:");
-        try {
-            sp.setYearoOfAdmission(Integer.parseInt(br.readLine()));
-        } catch (IOException e) {
-            e.printStackTrace();
+
+
+        boolean checkyear = false;
+        String year = "";
+        while (!checkyear) {
+            System.out.println("Please enter the year of admission:");
+            try {
+                year = br.readLine();
+                checkyear = sp.checkYear(year);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        System.out.println("Please enter your age:");
-        try {
-            sp.setAge(Integer.parseInt(br.readLine()));
-        } catch (IOException e) {
-            e.printStackTrace();
+        sp.setYearoOfAdmission(Integer.parseInt(year));
+
+        boolean checkage = false;
+        String age = "";
+        while (!checkage) {
+            System.out.println("Please enter your age:");
+            try {
+                age = br.readLine();
+                checkage = sp.checkYear(age);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        sp.setAge(Integer.parseInt(age));
 
         boolean checkusername = false;
         String username = "";
