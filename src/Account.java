@@ -1,3 +1,5 @@
+import java.util.regex.Pattern;
+
 public class Account {
     private String username;
     private String password;
@@ -18,6 +20,23 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean checkUsername(String username) {
+        if (username.length() >= Constant.UserNameLong) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkPassword(String password) {
+        if (username.length() >= Constant.PasswordLong) {
+            if (Pattern.compile("^.*[0-9].*$").matcher(password).find()) {
+                return true;
+            }
+            return false;
+        }
+        return false;
     }
 
     public String getUsername() {

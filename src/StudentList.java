@@ -81,18 +81,31 @@ public class StudentList {
             e.printStackTrace();
         }
 
-        System.out.println("Please enter a username [At least 6 characters]:");
-        try {
-            a.setUsername(br.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
+        boolean checkusername = false;
+        String username = "";
+        while (!checkusername) {
+            System.out.println("Please enter a username [At least 6 characters]:");
+            try {
+                username = br.readLine();
+                checkusername = a.checkUsername(username);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        System.out.println("Please enter a username [At least 6 characters with at least one digit]:");
-        try {
-            a.setPassword(br.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
+        a.setUsername(username);
+
+        boolean checkpassword = false;
+        String password = "";
+        while (!checkpassword) {
+            System.out.println("Please enter a username [At least 6 characters with at least one digit]:");
+            try {
+                password = br.readLine();
+                checkpassword = a.checkPassword(password);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        a.setPassword(password);
 
         s.setStudentProfile(sp);
         s.setAccount(a);
