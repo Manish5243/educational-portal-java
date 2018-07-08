@@ -111,4 +111,23 @@ public class StudentList {
         }
         return 0;
     }
+
+    public void displayAll() {
+        String str = "";
+        int i = 1;
+        StudentProfile sp;
+        System.out.println();
+        System.out.println(String.format("There are %d students in CICCC as following:", this.getNumberOfSutudents()));
+        for (Student s : students) {
+            sp = s.getStudentProfile();
+            str = i + ") " + sp.getFirstname() + " " + sp.getLastname() + " : " + sp.getStudentID();
+            System.out.println(str);
+            i++;
+        }
+        System.out.println();
+    }
+
+    public int getNumberOfSutudents() {
+        return this.students.size();
+    }
 }

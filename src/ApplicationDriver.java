@@ -104,6 +104,9 @@ public class ApplicationDriver {
             case 6 :
                 courses.displayAll(currentStudent);
                 break;
+            case 7 :
+                students.displayAll();
+                break;
         }
 
     }
